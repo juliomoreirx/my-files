@@ -1,67 +1,60 @@
-# PO - Clone da Landing Page HBO Max
+# PO - Clone da Landing Page HBO MAX
 
-Como Product Owner sênior, vou orientar sua equipe de 5 desenvolvedores iniciantes para criar um clone fiel da landing page da HBO Max, considerando a stack HTML+CSS e o prazo até 17/06/2025.
+Como Product Owner sênior, vou orientar sua equipe de 5 desenvolvedores iniciantes para criar um clone fiel da landing page HBO MAX, considerando a stack HTML + CSS e o prazo de 10 dias.
 
-![Referência HBO Max](https://github.com/user-attachments/assets/1a135c56-8bc6-4dce-940f-b1143a404e14)
-
+![Referência HBO MAX](https://github.com/user-attachments/assets/1a135c56-8bc6-4dce-940f-b1143a404e14)
 
 ## 1. Análise Inicial
 
 ### Mapeamento Detalhado da Página
 
-Analisando a landing page da HBO Max, identifiquei os seguintes elementos principais:
+Analisando a landing page HBO MAX, identifiquei os seguintes elementos principais:
 
 **Estrutura da Página:**
-- **Header/Navegação:** Logo HBO Max, menu de navegação horizontal, botão de login
-- **Hero Section:** Banner principal com conteúdo em destaque e call-to-action
-- **Carrossel de Conteúdo:** Grid responsivo com posters de filmes/séries
-- **Seção de Planos:** Cards com opções de assinatura (Básico, Standard, Platinum)
-- **Seção de Categorias:** Grid com diferentes gêneros (Ação, Comédia, Drama, etc.)
-- **Seção "Estreias":** Destaque para novos lançamentos
-- **Seção de Gêneros:** Carrossel horizontal com conteúdo por categoria
-- **FAQ Section:** Perguntas frequentes com accordion
-- **Footer:** Links institucionais, redes sociais, informações legais
+- **Header/Navegação:** Logo HBO MAX, menu de navegação (INÍCIO, SÉRIES TV, FILMES, etc.), botão "ASSINE AGORA"
+- **Hero Section:** Grid de thumbnails dos conteúdos com overlay do logo HBO MAX centralizado e call-to-action "Planos a partir de R$18,90/mês"
+- **Seção de Planos:** Cards comparativos dos três planos (Básico com Anúncios, Standard, Platinum) com preços e funcionalidades
+- **Seção de Conteúdos Destacados:** Carrossel horizontal com diferentes categorias de conteúdo (dramas, comédias, etc.)
+- **Seção "Estreias que vão dar o que falar":** Grid de 6 thumbnails de novos lançamentos
+- **Seção "Descubra o melhor de":** Carrossel de categorias (Realidades, Ação, Comédia) com conteúdos específicos
+- **Footer:** Links organizados por categorias, informações legais, redes sociais
 
 ### Identificação de Desafios Técnicos
 
-**Principais desafios considerando HTML+CSS e nível iniciante:**
-1. **Responsividade complexa:** Layout que funciona em mobile e desktop
-2. **Grid layouts:** Organização de múltiplos cards de conteúdo
-3. **Carrosseis/Sliders:** Movimento horizontal de conteúdo (usando CSS puro)
-4. **Accordion FAQ:** Funcionalidade expand/collapse
-5. **Hover effects:** Interações visuais nos cards
-6. **Tipografia e cores:** Fidelidade ao design original
+**Principais desafios considerando HTML + CSS e nível iniciante:**
+1. **Grid Layout Complexo:** A página usa grids tanto para o hero section quanto para as seções de conteúdo, exigindo domínio de CSS Grid
+2. **Responsividade Avançada:** Diferentes layouts para mobile/desktop com reorganização de elementos
+3. **Carrosseis Horizontais:** Implementar scroll horizontal suave apenas com CSS
+4. **Sobreposição de Elementos:** Logo centralizado sobre o grid de thumbnails com background semi-transparente
+5. **Sistema de Cards:** Cards de planos com diferentes estados e comparações visuais
 
 ### Avaliação de Complexidade
 
 **Complexidade Geral: 7/10**
 
 **Justificativa:**
-- Layout complexo com múltiplas seções
-- Responsividade avançada necessária
-- Limitação do CSS puro para interações
-- Grande quantidade de elementos visuais
-- Necessidade de organização de assets (imagens)
+- Layout complexo com múltiplas seções e tipos de grid
+- Necessidade de criar carrosseis apenas com CSS
+- Responsividade em vários breakpoints
+- Fidelidade visual alta exigida
+- Sobreposições e efeitos visuais avançados para nível iniciante
 
 ### Sugestão de Componentização
 
 ```
-src/
+hbo-max-clone/
 ├── index.html
 ├── css/
-│   ├── styles.css (arquivo principal)
+│   ├── styles.css (main stylesheet)
 │   ├── header.css
 │   ├── hero.css
-│   ├── content-grid.css
-│   ├── pricing.css
-│   ├── categories.css
-│   ├── faq.css
+│   ├── plans.css
+│   ├── content-sections.css
 │   ├── footer.css
 │   └── responsive.css
 ├── images/
-│   ├── logo/
-│   ├── posters/
-│   ├── backgrounds/
+│   ├── thumbnails/
+│   ├── logos/
 │   └── icons/
 └── assets/
     └── fonts/
@@ -69,332 +62,461 @@ src/
 
 ### Observações UX/UI
 
-- **Responsividade:** Mobile-first approach obrigatório
-- **Acessibilidade:** Contraste adequado, navegação por teclado, alt texts
-- **Performance:** Otimização de imagens, CSS organizado
-- **Fidelidade visual:** Cores, fontes e espaçamentos fiéis ao original
+- **Responsividade:** Mobile-first approach com breakpoints em 768px e 1024px
+- **Acessibilidade:** Alt texts para todas as imagens, navegação por teclado, contraste adequado
+- **Performance:** Otimização de imagens, CSS minificado
+- **Fidelidade visual:** Cores HBO (#000000, #9D2EFF), tipografia, espaçamentos exatos
 
 ## 2. Planejamento de Sprints
 
-### Sprint 1 - Estrutura Base e Header
-**Objetivo:** Criar a estrutura HTML básica e implementar o header responsivo
+### Sprint 1 - Setup e Estrutura Base
+**Objetivo:** Configurar ambiente, estrutura base do projeto e implementar header responsivo
 **Duração:** 1 semana
 
 #### Desenvolvedor #1
-- [ ] **#001 - Estrutura HTML Base**
-  - **Descrição:** Criar a estrutura semântica completa do HTML da landing page. Isso inclui definir todas as seções principais (header, main, footer) com as tags semânticas apropriadas (nav, section, article, etc.). Esta tarefa é fundamental pois servirá como base para todo o projeto.
-  - **Critérios de aceite:** HTML validado, estrutura semântica correta, comentários organizacionais, arquivo index.html funcional
+- [ ] **#001 - Setup do Projeto e Estrutura HTML Base**
+  - **Descrição:** Criar a estrutura inicial do projeto com arquivos HTML e CSS organizados. Definir a estrutura semântica básica da página (header, main, sections, footer) e configurar o arquivo CSS principal com reset e variáveis CSS para cores e fontes da HBO MAX.
+  - **Critérios de aceite:** 
+    - Estrutura de pastas criada conforme componentização
+    - index.html com estrutura semântica completa
+    - CSS reset aplicado
+    - Variáveis CSS definidas para cores e fontes
+    - Arquivo funciona sem erros no navegador
   - **Dificuldade:** ⭐⭐
   - **Estimativa:** 8 horas
-  - **Tecnologias:** HTML5
-  - **Sugestão de recursos/técnicas:** Semantic HTML, HTML5 tags (nav, main, section, article, aside)
-  - **Foco de treinamento:** HTML semântico e boas práticas
+  - **Tecnologias:** HTML5, CSS3
+  - **Sugestão de recursos/técnicas:** Semantic HTML, CSS Custom Properties, CSS Reset
+  - **Foco de treinamento:** Estruturação semântica e organização de arquivos
   - **Dependências:** Nenhuma
-  - **Labels:** frontend, documentação
+  - **Labels:** frontend, setup
 
 #### Desenvolvedor #2
-- [ ] **#002 - Header Responsivo**
-  - **Descrição:** Implementar o header da HBO Max com logo, menu de navegação e botão de login. O header deve ser fixo no topo e responsivo, colapsando em menu hambúrguer no mobile. Use Flexbox para organizar os elementos horizontalmente.
-  - **Critérios de aceite:** Header fixo, logo posicionado, menu responsivo, botão de login estilizado, funciona em mobile e desktop
+- [ ] **#002 - Implementação do Header e Navegação**
+  - **Descrição:** Criar o header da página com logo HBO MAX, menu de navegação horizontal e botão "ASSINE AGORA". Usar Flexbox para organizar elementos e garantir que fique responsivo. Implementar states do menu (hover) e posicionamento correto dos elementos.
+  - **Critérios de aceite:**
+    - Header fixo no topo da página
+    - Logo HBO MAX posicionado à esquerda
+    - Menu navegação centralizado com links funcionais
+    - Botão "ASSINE AGORA" destacado à direita
+    - Hover states implementados
+    - Responsivo em mobile (menu hambúrguer opcional)
   - **Dificuldade:** ⭐⭐⭐
   - **Estimativa:** 10 horas
-  - **Tecnologias:** HTML, CSS
-  - **Sugestão de recursos/técnicas:** Flexbox, Position fixed, Media Queries, CSS pseudo-classes
-  - **Foco de treinamento:** Flexbox e responsividade
+  - **Tecnologias:** HTML5, CSS3, Flexbox
+  - **Sugestão de recursos/técnicas:** Flexbox justify-content, align-items, hover pseudo-classes
+  - **Foco de treinamento:** Flexbox Layout e estados CSS
   - **Dependências:** #001
   - **Labels:** frontend, design
 
 #### Desenvolvedor #3
-- [ ] **#003 - Reset CSS e Variáveis**
-  - **Descrição:** Criar um CSS reset personalizado e definir todas as variáveis CSS (cores, fontes, espaçamentos) baseadas no design da HBO Max. Isso garantirá consistência visual em todo o projeto e facilitará manutenções futuras.
-  - **Critérios de aceite:** CSS reset aplicado, variáveis definidas, documentação das cores e fontes, estilos base criados
+- [ ] **#003 - Coleta e Otimização de Assets**
+  - **Descrição:** Pesquisar e coletar todas as imagens necessárias (thumbnails, logos, ícones) para replicar a página HBO MAX. Organizar assets em pastas apropriadas, otimizar tamanhos para web e criar estrutura de nomenclatura padronizada. Documentar origem e uso de cada asset.
+  - **Critérios de aceite:**
+    - Todas as imagens da referência coletadas
+    - Assets organizados em pastas por categoria
+    - Imagens otimizadas para web (formato adequado, compressão)
+    - Nomenclatura padronizada e documentada
+    - Lista de assets criada para referência da equipe
   - **Dificuldade:** ⭐⭐
-  - **Estimativa:** 6 horas
-  - **Tecnologias:** CSS
-  - **Sugestão de recursos/técnicas:** CSS Variables (Custom Properties), CSS Reset, Typography
-  - **Foco de treinamento:** CSS avançado e organização
+  - **Estimativa:** 8 horas
+  - **Tecnologias:** Ferramentas de otimização de imagem
+  - **Sugestão de recursos/técnicas:** Compressão de imagens, formatos webp/jpg, nomenclatura semântica
+  - **Foco de treinamento:** Organização de assets e otimização
+  - **Dependências:** #001
+  - **Labels:** design, frontend
+
+#### Desenvolvedor #4
+- [ ] **#004 - Configuração CSS Base e Tipografia**
+  - **Descrição:** Definir toda a base tipográfica do projeto seguindo o design HBO MAX. Configurar fonts families, tamanhos, pesos e line-heights. Criar classes utilitárias para textos e estabelecer hierarquia visual. Implementar sistema de cores usando variáveis CSS.
+  - **Critérios de aceite:**
+    - Fontes HBO MAX implementadas (ou similares)
+    - Sistema de classes tipográficas criado
+    - Variáveis CSS para cores definidas
+    - Hierarquia visual estabelecida (h1, h2, h3, p, etc.)
+    - Classes utilitárias funcionais
+    - Teste em diferentes tamanhos de tela
+  - **Dificuldade:** ⭐⭐
+  - **Estimativa:** 8 horas
+  - **Tecnologias:** CSS3, Google Fonts
+  - **Sugestão de recursos/técnicas:** CSS Custom Properties, @import para fonts, rem units
+  - **Foco de treinamento:** Sistema de design e variáveis CSS
   - **Dependências:** #001
   - **Labels:** frontend, design
 
-#### Desenvolvedor #4
-- [ ] **#004 - Setup do Projeto e Git**
-  - **Descrição:** Configurar a estrutura de pastas do projeto, criar o README inicial com instruções de setup, configurar o repositório Git e criar os primeiros commits. Documentar o processo de desenvolvimento local.
-  - **Critérios de aceite:** Estrutura de pastas organizada, README completo, repositório configurado, .gitignore criado
-  - **Dificuldade:** ⭐⭐
-  - **Estimativa:** 4 horas
-  - **Tecnologias:** Git, GitHub
-  - **Sugestão de recursos/técnicas:** Git commands, Markdown, File organization
-  - **Foco de treinamento:** Git/GitHub e documentação
-  - **Dependências:** Nenhuma
-  - **Labels:** documentação
-
 #### Desenvolvedor #5
-- [ ] **#005 - Coleta e Organização de Assets**
-  - **Descrição:** Coletar todas as imagens necessárias (logo, posters, backgrounds), otimizá-las para web e organizá-las na estrutura de pastas. Criar um inventário dos assets com suas respectivas utilizações.
-  - **Critérios de aceite:** Todas as imagens coletadas e otimizadas, pastas organizadas, inventário de assets criado, imagens com nomes descritivos
+- [ ] **#005 - Documentação Initial e Tutorial Git/GitHub**
+  - **Descrição:** Criar documentação inicial do projeto incluindo README detalhado, guia de instalação e configuração do ambiente, e tutorial prático de Git/GitHub para a equipe. Estabelecer padrões de commit, branching e code review. Criar templates para issues e pull requests.
+  - **Critérios de aceite:**
+    - README.md completo com instruções de setup
+    - Tutorial Git/GitHub específico para o projeto
+    - Padrões de commit definidos e documentados
+    - Templates de issue e PR criados
+    - Guia de contribuição estabelecido
+    - Estrutura do projeto documentada
   - **Dificuldade:** ⭐⭐
   - **Estimativa:** 8 horas
-  - **Tecnologias:** HTML
-  - **Sugestão de recursos/técnicas:** Image optimization, File naming conventions, Asset organization
-  - **Foco de treinamento:** Organização de projeto e otimização
-  - **Dependências:** #004
-  - **Labels:** design, frontend
+  - **Tecnologias:** Markdown, Git, GitHub
+  - **Sugestão de recursos/técnicas:** Markdown syntax, Git workflow, GitHub features
+  - **Foco de treinamento:** Documentação técnica e versionamento
+  - **Dependências:** #001
+  - **Labels:** documentação
 
-### Sprint 2 - Hero Section e Layout Principal
-**Objetivo:** Implementar a seção hero com background e call-to-action principal
+### Sprint 2 - Hero Section e Grid Principal
+**Objetivo:** Implementar a seção hero com grid de thumbnails e overlay do logo HBO MAX
 **Duração:** 1 semana
 
 #### Desenvolvedor #1
-- [ ] **#006 - Hero Section Layout**
-  - **Descrição:** Criar a seção principal (hero) com background em vídeo ou imagem, título principal, subtítulo e botão de call-to-action. Esta seção deve ocupar toda a altura da viewport e ser o ponto focal da página.
-  - **Critérios de aceite:** Hero section com altura 100vh, background implementado, textos sobrepostos, botão funcional
-  - **Dificuldade:** ⭐⭐⭐
-  - **Estimativa:** 10 horas
-  - **Tecnologias:** HTML, CSS
-  - **Sugestão de recursos/técnicas:** CSS Background, Flexbox, Viewport units (vh, vw), Text overlay
-  - **Foco de treinamento:** Layout avançado e posicionamento
+- [ ] **#006 - Estrutura HTML do Hero Section**
+  - **Descrição:** Criar a estrutura HTML semântica para a seção hero principal, incluindo container para o grid de thumbnails, área de overlay para logo e call-to-action. Definir containers e elementos necessários para posterior estilização com CSS Grid.
+  - **Critérios de aceite:**
+    - Estrutura HTML semântica do hero implementada
+    - Containers apropriados para grid e overlay
+    - Elementos de texto e CTA estruturados
+    - Acessibilidade básica implementada (alt texts, roles)
+    - HTML válido e sem erros
+  - **Dificuldade:** ⭐⭐
+  - **Estimativa:** 6 horas
+  - **Tecnologias:** HTML5
+  - **Sugestão de recursos/técnicas:** Semantic HTML, accessibility attributes
+  - **Foco de treinamento:** Estruturação semântica avançada
   - **Dependências:** #001, #003
-  - **Labels:** frontend, design
+  - **Labels:** frontend
 
 #### Desenvolvedor #2
-- [ ] **#007 - Responsividade do Hero**
-  - **Descrição:** Adaptar a seção hero para diferentes tamanhos de tela, ajustando tipografia, espaçamentos e posicionamento dos elementos. Garantir que funcione bem em mobile, tablet e desktop.
-  - **Critérios de aceite:** Hero responsivo em todos os breakpoints, textos legíveis, botão acessível em mobile
-  - **Dificuldade:** ⭐⭐⭐
-  - **Estimativa:** 8 horas
-  - **Tecnologias:** CSS
-  - **Sugestão de recursos/técnicas:** Media Queries, Responsive Typography, Mobile-first design
-  - **Foco de treinamento:** Design responsivo avançado
+- [ ] **#007 - CSS Grid Layout do Hero**
+  - **Descrição:** Implementar CSS Grid para organizar os thumbnails na seção hero, criando layout responsivo que se adapta a diferentes tamanhos de tela. Usar grid-template-areas e auto-fit para responsividade. Garantir que thumbnails mantenham proporção adequada.
+  - **Critérios de aceite:**
+    - Grid responsivo funcionando em desktop e mobile
+    - Thumbnails mantém proporção correta
+    - Layout se adapta a diferentes quantidades de itens
+    - Espaçamento adequado entre elementos
+    - Performance otimizada
+  - **Dificuldade:** ⭐⭐⭐⭐
+  - **Estimativa:** 12 horas
+  - **Tecnologias:** CSS3, CSS Grid
+  - **Sugestão de recursos/técnicas:** CSS Grid, grid-template-columns, auto-fit, aspect-ratio
+  - **Foco de treinamento:** CSS Grid Layout avançado
   - **Dependências:** #006
   - **Labels:** frontend, design
 
 #### Desenvolvedor #3
-- [ ] **#008 - Grid de Conteúdo Base**
-  - **Descrição:** Criar a estrutura CSS Grid para exibir os cards de filmes/séries em layout responsivo. Esta será a base para todas as seções de conteúdo da página.
-  - **Critérios de aceite:** Grid responsivo criado, cards se adaptam a diferentes telas, espaçamento consistente
-  - **Dificuldade:** ⭐⭐⭐⭐
-  - **Estimativa:** 12 horas
-  - **Tecnologias:** CSS
-  - **Sugestão de recursos/técnicas:** CSS Grid, Grid Template Areas, Responsive Grid
-  - **Foco de treinamento:** CSS Grid avançado
-  - **Dependências:** #003
-  - **Labels:** frontend
-
-#### Desenvolvedor #4
-- [ ] **#009 - Cards de Conteúdo**
-  - **Descrição:** Desenvolver os componentes de card individuais para filmes/séries, incluindo poster, hover effects e informações básicas. Cada card deve ter interação visual quando o usuário passa o mouse.
-  - **Critérios de aceite:** Cards estilizados, hover effects funcionais, imagens otimizadas, layout consistente
+- [ ] **#008 - Overlay e Posicionamento do Logo Central**
+  - **Descrição:** Criar overlay semi-transparente sobre o grid de thumbnails e posicionar logo HBO MAX no centro com call-to-action. Usar position absolute/relative e z-index para sobreposição correta. Implementar backdrop-filter ou background rgba para efeito visual.
+  - **Critérios de aceite:**
+    - Overlay semi-transparente funcionando
+    - Logo HBO MAX centralizado perfeitamente
+    - Call-to-action visível e destacado
+    - Efeito visual similar à referência
+    - Funcionamento em diferentes resoluções
   - **Dificuldade:** ⭐⭐⭐
   - **Estimativa:** 10 horas
-  - **Tecnologias:** HTML, CSS
-  - **Sugestão de recursos/técnicas:** CSS Hover effects, Transitions, Transform
-  - **Foco de treinamento:** Interações CSS e animações
-  - **Dependências:** #008
+  - **Tecnologias:** CSS3, Position, Z-index
+  - **Sugestão de recursos/técnicas:** CSS positioning, backdrop-filter, transform centering
+  - **Foco de treinamento:** Posicionamento CSS e camadas
+  - **Dependências:** #007
   - **Labels:** frontend, design
 
-#### Desenvolvedor #5
-- [ ] **#010 - Integração e Testes**
-  - **Descrição:** Integrar todos os componentes desenvolvidos até agora, realizar testes de compatibilidade entre browsers e dispositivos, e documentar os resultados dos testes.
-  - **Critérios de aceite:** Todas as seções integradas, testes realizados em Chrome/Firefox/Safari, documentação de bugs/issues
-  - **Dificuldade:** ⭐⭐
-  - **Estimativa:** 6 horas
-  - **Tecnologias:** HTML, CSS
-  - **Sugestão de recursos/técnicas:** Cross-browser testing, Developer tools, Bug documentation
-  - **Foco de treinamento:** Testing e debugging
-  - **Dependências:** #006, #007, #008, #009
-  - **Labels:** testing
+#### Desenvolvedor #4
+- [ ] **#009 - Responsividade do Hero Section**
+  - **Descrição:** Implementar responsividade completa do hero section, adaptando grid, overlay e elementos para mobile, tablet e desktop. Criar breakpoints apropriados e testar em diferentes dispositivos. Ajustar tamanhos de fonte e espaçamentos proporcionalmente.
+  - **Critérios de aceite:**
+    - Hero responsivo em todos os breakpoints
+    - Grid se reorganiza adequadamente no mobile
+    - Textos legíveis em qualquer tamanho
+    - Performance mantida em dispositivos móveis
+    - Testes realizados em diferentes navegadores
+  - **Dificuldade:** ⭐⭐⭐⭐
+  - **Estimativa:** 12 horas
+  - **Tecnologias:** CSS3, Media Queries
+  - **Sugestão de recursos/técnicas:** Media queries, mobile-first approach, flexible units
+  - **Foco de treinamento:** Design responsivo avançado
+  - **Dependências:** #008
+  - **Labels:** frontend, responsive
 
-### Sprint 3 - Seção de Planos e Carrossel
-**Objetivo:** Implementar a seção de planos de assinatura e carrossel de conteúdo
+#### Desenvolvedor #5
+- [ ] **#010 - Testes e Validação do Hero Section**
+  - **Descrição:** Realizar testes abrangentes do hero section em diferentes navegadores e dispositivos. Validar HTML e CSS, verificar acessibilidade, performance e fidelidade visual com a referência. Documentar bugs encontrados e implementar correções.
+  - **Critérios de aceite:**
+    - Testes realizados em Chrome, Firefox, Safari, Edge
+    - Validação HTML e CSS sem erros
+    - Acessibilidade verificada (navegação por teclado, contraste)
+    - Performance aceitável (LCP < 2.5s)
+    - Fidelidade visual > 90% comparada à referência
+  - **Dificuldade:** ⭐⭐
+  - **Estimativa:** 8 horas
+  - **Tecnologias:** DevTools, Validators
+  - **Sugestão de recursos/técnicas:** Browser DevTools, W3C Validators, accessibility tools
+  - **Foco de treinamento:** Testing e debugging
+  - **Dependências:** #009
+  - **Labels:** testing, quality-assurance
+
+### Sprint 3 - Seção de Planos
+**Objetivo:** Implementar seção de comparação de planos com cards responsivos
 **Duração:** 1 semana
 
 #### Desenvolvedor #1
-- [ ] **#011 - Seção de Planos Layout**
-  - **Descrição:** Criar a seção "Escolha o melhor plano para você" com três cards de preços (Básico, Standard, Platinum). Cada card deve ter lista de benefícios, preço e botão de ação.
-  - **Critérios de aceite:** Três cards de planos criados, layout em grid, informações completas, preços destacados
-  - **Dificuldade:** ⭐⭐⭐
-  - **Estimativa:** 10 horas
-  - **Tecnologias:** HTML, CSS
-  - **Sugestão de recursos/técnicas:** CSS Grid, Card layouts, Typography hierarchy
-  - **Foco de treinamento:** Layout de cards e hierarquia visual
-  - **Dependências:** #008
-  - **Labels:** frontend, design
+- [ ] **#011 - Estrutura HTML da Seção de Planos**
+  - **Descrição:** Criar estrutura HTML semântica para a seção de planos, incluindo título, descrição e containers para os três cards de planos (Básico, Standard, Platinum). Organizar informações de cada plano de forma hierárquica e acessível.
+  - **Critérios de aceite:**
+    - HTML semântico para seção de planos
+    - Estrutura de cards bem definida
+    - Informações organizadas hierarquicamente
+    - Acessibilidade implementada
+    - HTML válido
+  - **Dificuldade:** ⭐⭐
+  - **Estimativa:** 6 horas
+  - **Tecnologias:** HTML5
+  - **Sugestão de recursos/técnicas:** Semantic HTML, card patterns, accessibility
+  - **Foco de treinamento:** Estruturação de componentes
+  - **Dependências:** #001
+  - **Labels:** frontend
 
 #### Desenvolvedor #2
 - [ ] **#012 - Estilização dos Cards de Planos**
-  - **Descrição:** Aplicar estilos visuais aos cards de planos, incluindo cores, sombras, hover effects e destacar o plano recomendado. O plano do meio deve ter destaque visual especial.
-  - **Critérios de aceite:** Cards estilizados, plano central destacado, hover effects, cores da marca aplicadas
+  - **Descrição:** Estilizar os cards de planos usando Flexbox, criando layout visual atrativo com destaque para diferentes planos. Implementar hierarquia visual, cores adequadas e espaçamentos consistentes. Criar hover effects e estados visuais.
+  - **Critérios de aceite:**
+    - Cards visualmente atraentes e consistentes
+    - Hierarquia visual clara (preços destacados)
+    - Hover effects implementados
+    - Cores e tipografia da marca HBO MAX
+    - Layout equilibrado entre os três cards
   - **Dificuldade:** ⭐⭐⭐
-  - **Estimativa:** 8 horas
-  - **Tecnologias:** CSS
-  - **Sugestão de recursos/técnicas:** Box-shadow, CSS Gradients, Hover states, Visual hierarchy
-  - **Foco de treinamento:** Design visual e efeitos CSS
+  - **Estimativa:** 10 horas
+  - **Tecnologias:** CSS3, Flexbox
+  - **Sugestão de recursos/técnicas:** Flexbox layout, CSS transitions, card design patterns
+  - **Foco de treinamento:** Flexbox e design de componentes
   - **Dependências:** #011
   - **Labels:** frontend, design
 
 #### Desenvolvedor #3
-- [ ] **#013 - Carrossel Horizontal CSS**
-  - **Descrição:** Implementar carrossel horizontal para navegação de conteúdo usando apenas CSS (sem JavaScript). Criar scroll horizontal suave com snap points.
-  - **Critérios de aceite:** Carrossel funcional, scroll horizontal, snap behavior, navegação suave
-  - **Dificuldade:** ⭐⭐⭐⭐⭐
-  - **Estimativa:** 14 horas
-  - **Tecnologias:** CSS
-  - **Sugestão de recursos/técnicas:** CSS Overflow, Scroll-snap, Flexbox horizontal
-  - **Foco de treinamento:** CSS avançado para interações
-  - **Dependências:** #009
-  - **Labels:** frontend
-
-#### Desenvolvedor #4
-- [ ] **#014 - Seção de Categorias**
-  - **Descrição:** Criar a seção que exibe diferentes categorias de conteúdo (Crianças e Família, Reality, Novelas, etc.) com imagens representativas e labels.
-  - **Critérios de aceite:** Grid de categorias criado, imagens e labels posicionados, hover effects aplicados
-  - **Dificuldade:** ⭐⭐⭐
-  - **Estimativa:** 10 horas
-  - **Tecnologias:** HTML, CSS
-  - **Sugestão de recursos/técnicas:** CSS Grid, Image overlays, Text positioning
-  - **Foco de treinamento:** Sobreposição de elementos e posicionamento
-  - **Dependências:** #008
-  - **Labels:** frontend, design
-
-#### Desenvolvedor #5
-- [ ] **#015 - Responsividade das Seções**
-  - **Descrição:** Adaptar todas as seções criadas nesta sprint para serem totalmente responsivas, testando em diferentes dispositivos e orientações.
-  - **Critérios de aceite:** Todas as seções responsivas, breakpoints definidos, teste em dispositivos móveis
+- [ ] **#013 - Grid Layout para Organização dos Cards**
+  - **Descrição:** Usar CSS Grid para organizar os três cards de planos horizontalmente no desktop e adaptá-los para layout vertical no mobile. Garantir espaçamento adequado e alinhamento perfeito entre os cards.
+  - **Critérios de aceite:**
+    - Layout em grid funcionando para os cards
+    - Alinhamento perfeito entre elementos
+    - Espaçamento consistente
+    - Adaptação adequada para mobile
+    - Cards mantém altura similar
   - **Dificuldade:** ⭐⭐⭐
   - **Estimativa:** 8 horas
-  - **Tecnologias:** CSS
-  - **Sugestão de recursos/técnicas:** Media Queries, Responsive design patterns, Mobile testing
-  - **Foco de treinamento:** Design responsivo completo
-  - **Dependências:** #011, #012, #013, #014
-  - **Labels:** frontend, testing
+  - **Tecnologias:** CSS3, CSS Grid
+  - **Sugestão de recursos/técnicas:** CSS Grid, grid-template-columns, gap property
+  - **Foco de treinamento:** CSS Grid para componentes
+  - **Dependências:** #012
+  - **Labels:** frontend, design
 
-### Sprint 4 - FAQ e Footer
-**Objetivo:** Implementar a seção de perguntas frequentes e footer institucional
+#### Desenvolvedor #4
+- [ ] **#014 - Botões e CTAs dos Planos**
+  - **Descrição:** Criar e estilizar botões de call-to-action para cada plano, implementando diferentes estados (normal, hover, active) e garantindo acessibilidade. Botões devem ser visualmente distintos mas consistentes com o design system.
+  - **Critérios de aceite:**
+    - Botões estilizados conforme design HBO MAX
+    - Estados visuais implementados (hover, active, focus)
+    - Acessibilidade de teclado funcionando
+    - Consistência visual entre todos os botões
+    - Responsividade adequada
+  - **Dificuldade:** ⭐⭐
+  - **Estimativa:** 8 horas
+  - **Tecnologias:** CSS3
+  - **Sugestão de recursos/técnicas:** CSS pseudo-classes, button accessibility, transitions
+  - **Foco de treinamento:** Estados CSS e acessibilidade
+  - **Dependências:** #013
+  - **Labels:** frontend, accessibility
+
+#### Desenvolvedor #5
+- [ ] **#015 - Responsividade da Seção de Planos**
+  - **Descrição:** Implementar responsividade completa da seção de planos, adaptando layout de grid para mobile (empilhamento vertical), ajustando tamanhos de fonte, espaçamentos e garantindo usabilidade em todos os dispositivos.
+  - **Critérios de aceite:**
+    - Layout responsivo funcionando em todos os breakpoints
+    - Cards empilham verticalmente no mobile
+    - Textos e botões permanecem legíveis
+    - Espaçamentos proporcionais
+    - Usabilidade mantida em touch devices
+  - **Dificuldade:** ⭐⭐⭐
+  - **Estimativa:** 10 horas
+  - **Tecnologias:** CSS3, Media Queries
+  - **Sugestão de recursos/técnicas:** Responsive design, mobile-first, flexible layouts
+  - **Foco de treinamento:** Design responsivo para componentes
+  - **Dependências:** #014
+  - **Labels:** frontend, responsive
+
+### Sprint 4 - Seções de Conteúdo e Carrosseis
+**Objetivo:** Implementar seções de conteúdo com carrosseis horizontais
 **Duração:** 1 semana
 
 #### Desenvolvedor #1
-- [ ] **#016 - Estrutura FAQ Accordion**
-  - **Descrição:** Criar a estrutura HTML e CSS para a seção de FAQ com efeito accordion (expand/collapse) usando apenas CSS com checkbox hack ou details/summary.
-  - **Critérios de aceite:** FAQ funcional, expand/collapse suave, perguntas organizadas, acessível por teclado
-  - **Dificuldade:** ⭐⭐⭐⭐
-  - **Estimativa:** 12 horas
-  - **Tecnologias:** HTML, CSS
-  - **Sugestão de recursos/técnicas:** Details/Summary elements, CSS Transitions, Checkbox hack
-  - **Foco de treinamento:** Interações CSS avançadas
+- [ ] **#016 - Estrutura HTML das Seções de Conteúdo**
+  - **Descrição:** Criar estrutura HTML para as seções "As grandes histórias..." e "Estreias que vão dar o que falar", incluindo títulos, containers para carrosseis e grids de thumbnails. Organizar elementos para posterior implementação de scroll horizontal.
+  - **Critérios de aceite:**
+    - HTML semântico para todas as seções de conteúdo
+    - Containers apropriados para carrosseis
+    - Estrutura preparada para scroll horizontal
+    - Acessibilidade básica implementada
+    - HTML válido
+  - **Dificuldade:** ⭐⭐
+  - **Estimativa:** 8 horas
+  - **Tecnologias:** HTML5
+  - **Sugestão de recursos/técnicas:** Semantic HTML, carousel patterns
+  - **Foco de treinamento:** Estruturação de componentes complexos
   - **Dependências:** #003
   - **Labels:** frontend
 
 #### Desenvolvedor #2
-- [ ] **#017 - Estilização do FAQ**
-  - **Descrição:** Aplicar estilos visuais ao FAQ, incluindo ícones de expand/collapse, tipografia adequada, espaçamentos e efeitos de transição suaves.
-  - **Critérios de aceite:** FAQ estilizado, ícones funcionais, transições suaves, tipografia legível
+- [ ] **#017 - Carrossel CSS Horizontal**
+  - **Descrição:** Implementar carrossel horizontal usando apenas CSS com scroll suave. Criar layout que permite scroll horizontal de thumbnails mantendo responsividade. Usar overflow-x e scroll-behavior para navegação suave.
+  - **Critérios de aceite:**
+    - Carrossel horizontal funcionando
+    - Scroll suave implementado
+    - Thumbnails mantém proporção
+    - Funciona em diferentes dispositivos
+    - Performance otimizada
+  - **Dificuldade:** ⭐⭐⭐⭐
+  - **Estimativa:** 14 horas
+  - **Tecnologias:** CSS3, Flexbox
+  - **Sugestão de recursos/técnicas:** overflow-x: scroll, scroll-behavior: smooth, flexbox
+  - **Foco de treinamento:** CSS scroll e carrosseis
+  - **Dependências:** #016
+  - **Labels:** frontend, advanced
+
+#### Desenvolvedor #3
+- [ ] **#018 - Grid de Estreias**
+  - **Descrição:** Implementar grid de 6 thumbnails para seção "Estreias que vão dar o que falar" usando CSS Grid. Criar layout responsivo que se adapta de 3x2 no desktop para 2x3 no mobile, mantendo proporções adequadas.
+  - **Critérios de aceite:**
+    - Grid 3x2 funcionando no desktop
+    - Adaptação para 2x3 no mobile
+    - Proporções mantidas
+    - Espaçamento adequado
+    - Responsividade suave
   - **Dificuldade:** ⭐⭐⭐
-  - **Estimativa:** 8 horas
-  - **Tecnologias:** CSS
-  - **Sugestão de recursos/técnicas:** CSS Icons, Transitions, Typography, Pseudo-elements
-  - **Foco de treinamento:** Estilização de componentes interativos
+  - **Estimativa:** 10 horas
+  - **Tecnologias:** CSS3, CSS Grid
+  - **Sugestão de recursos/técnicas:** CSS Grid, grid-template-columns, responsive grid
+  - **Foco de treinamento:** CSS Grid responsivo
   - **Dependências:** #016
   - **Labels:** frontend, design
 
-#### Desenvolvedor #3
-- [ ] **#018 - Footer Institucional**
-  - **Descrição:** Criar o footer completo com logo, links institucionais organizados em colunas, redes sociais e informações legais. O footer deve ser bem estruturado e responsivo.
-  - **Critérios de aceite:** Footer completo, links organizados, logo posicionado, redes sociais incluídas
-  - **Dificuldade:** ⭐⭐
-  - **Estimativa:** 8 horas
-  - **Tecnologias:** HTML, CSS
-  - **Sugestão de recursos/técnicas:** CSS Grid, Flexbox, Link styling
-  - **Foco de treinamento:** Layouts de footer e organização de conteúdo
-  - **Dependências:** #003
-  - **Labels:** frontend
-
 #### Desenvolvedor #4
-- [ ] **#019 - Seção "Estreias"**
-  - **Descrição:** Implementar a seção que destaca os novos lançamentos com layout especial, usando cards maiores e posicionamento estratégico para dar destaque ao conteúdo.
-  - **Critérios de aceite:** Seção de estreias criada, cards destacados, layout diferenciado, imagens otimizadas
-  - **Dificuldade:** ⭐⭐⭐
-  - **Estimativa:** 10 horas
-  - **Tecnologias:** HTML, CSS
-  - **Sugestão de recursos/técnicas:** CSS Grid, Card variations, Image optimization
-  - **Foco de treinamento:** Variações de layout e destaque visual
-  - **Dependências:** #009
-  - **Labels:** frontend, design
+- [ ] **#019 - Seção "Descubra o melhor de"**
+  - **Descrição:** Implementar seção de categorias com carrossel e navegação por tabs (Realidades, Ação, Comédia). Criar sistema de tabs funcionais apenas com CSS usando radio buttons ou similar, mantendo acessibilidade.
+  - **Critérios de aceite:**
+    - Sistema de tabs funcionando
+    - Carrossel específico para cada categoria
+    - Navegação acessível por teclado
+    - Visual consistente com referência
+    - Performance adequada
+  - **Dificuldade:** ⭐⭐⭐⭐
+  - **Estimativa:** 14 horas
+  - **Tecnologias:** CSS3
+  - **Sugestão de recursos/técnicas:** CSS-only tabs, radio buttons, pseudo-classes
+  - **Foco de treinamento:** CSS interativo avançado
+  - **Dependências:** #017
+  - **Labels:** frontend, advanced
 
 #### Desenvolvedor #5
-- [ ] **#020 - Navegação e Links**
-  - **Descrição:** Implementar toda a navegação interna da página, criar smooth scroll entre seções, configurar todos os links e testar a navegabilidade completa.
-  - **Critérios de aceite:** Navegação funcional, smooth scroll implementado, todos os links testados, navegação acessível
-  - **Dificuldade:** ⭐⭐
-  - **Estimativa:** 6 horas
-  - **Tecnologias:** HTML, CSS
-  - **Sugestão de recursos/técnicas:** CSS Smooth scroll, Anchor links, Keyboard navigation
-  - **Foco de treinamento:** Navegação e acessibilidade
-  - **Dependências:** #002, #018
-  - **Labels:** frontend, testing
+- [ ] **#020 - Responsividade das Seções de Conteúdo**
+  - **Descrição:** Garantir responsividade completa de todas as seções de conteúdo, adaptando carrosseis, grids e sistemas de navegação para mobile. Testar usabilidade touch e ajustar espaçamentos e tamanhos proporcionalmente.
+  - **Critérios de aceite:**
+    - Todas as seções responsivas
+    - Carrosseis funcionam em touch devices
+    - Grids se adaptam adequadamente
+    - Navegação por tabs acessível no mobile
+    - Performance mantida
+  - **Dificuldade:** ⭐⭐⭐⭐
+  - **Estimativa:** 12 horas
+  - **Tecnologias:** CSS3, Media Queries
+  - **Sugestão de recursos/técnicas:** Touch-friendly design, responsive carousels
+  - **Foco de treinamento:** Responsividade avançada
+  - **Dependências:** #019
+  - **Labels:** frontend, responsive
 
-### Sprint 5 - Acessibilidade e Polimento Final
-**Objetivo:** Implementar acessibilidade, otimizações e realizar testes finais
+### Sprint 5 - Footer e Finalização
+**Objetivo:** Implementar footer, FAQ section e finalizar o projeto
 **Duração:** 1 semana
 
 #### Desenvolvedor #1
-- [ ] **#021 - Acessibilidade WCAG**
-  - **Descrição:** Implementar recursos de acessibilidade seguindo padrões WCAG AA: alt texts, roles ARIA, navegação por teclado, contraste de cores e suporte a screen readers.
-  - **Critérios de aceite:** Alt texts completos, navegação por teclado funcional, contraste adequado, roles ARIA implementados
-  - **Dificuldade:** ⭐⭐⭐⭐
-  - **Estimativa:** 12 horas
-  - **Tecnologias:** HTML, CSS
-  - **Sugestão de recursos/técnicas:** ARIA attributes, Semantic HTML, Color contrast, Keyboard navigation
-  - **Foco de treinamento:** Acessibilidade web
-  - **Dependências:** Todas as seções principais
-  - **Labels:** frontend, testing
-
-#### Desenvolvedor #2
-- [ ] **#022 - Otimização e Performance**
-  - **Descrição:** Otimizar CSS (minificação, organização), otimizar imagens, implementar lazy loading para imagens e melhorar a performance geral da página.
-  - **Critérios de aceite:** CSS otimizado, imagens comprimidas, lazy loading implementado, page speed melhorado
-  - **Dificuldade:** ⭐⭐⭐
-  - **Estimativa:** 10 horas
-  - **Tecnologias:** CSS, HTML
-  - **Sugestão de recursos/técnicas:** CSS optimization, Image compression, Lazy loading, Performance testing
-  - **Foco de treinamento:** Otimização web
-  - **Dependências:** Todas as seções
-  - **Labels:** frontend
-
-#### Desenvolvedor #3
-- [ ] **#023 - Testes Cross-browser**
-  - **Descrição:** Realizar testes extensivos em diferentes navegadores (Chrome, Firefox, Safari, Edge) e dispositivos, documentar incompatibilidades e criar fixes necessários.
-  - **Critérios de aceite:** Testes realizados em 4+ browsers, issues documentados, fixes implementados, relatório de compatibilidade
-  - **Dificuldade:** ⭐⭐⭐
-  - **Estimativa:** 10 horas
-  - **Tecnologias:** CSS, HTML
-  - **Sugestão de recursos/técnicas:** Browser testing, Developer tools, Cross-browser CSS
-  - **Foco de treinamento:** Testing e debugging
-  - **Dependências:** Projeto quase completo
-  - **Labels:** testing
-
-#### Desenvolvedor #4
-- [ ] **#024 - Documentação Final**
-  - **Descrição:** Criar documentação completa do projeto incluindo README detalhado, comentários no código, guia de instalação, estrutura do projeto e tutorial de manutenção.
-  - **Critérios de aceite:** README completo, código comentado, guia de instalação, documentação de estrutura
+- [ ] **#021 - Estrutura HTML do Footer**
+  - **Descrição:** Criar estrutura HTML completa do footer incluindo links organizados por categorias, informações legais, redes sociais e seção de FAQ. Organizar elementos de forma semântica e acessível.
+  - **Critérios de aceite:**
+    - Footer estruturado semanticamente
+    - Links organizados por categorias
+    - Seção de FAQ estruturada
+    - Informações legais incluídas
+    - Acessibilidade implementada
   - **Dificuldade:** ⭐⭐
   - **Estimativa:** 8 horas
-  - **Tecnologias:** Markdown
-  - **Sugestão de recursos/técnicas:** Documentation writing, Markdown, Code comments
-  - **Foco de treinamento:** Documentação técnica
-  - **Dependências:** Projeto completo
-  - **Labels:** documentação
+  - **Tecnologias:** HTML5
+  - **Sugestão de recursos/técnicas:** Semantic HTML, footer patterns, accessibility
+  - **Foco de treinamento:** Estruturação completa de páginas
+  - **Dependências:** #001
+  - **Labels:** frontend
+
+#### Desenvolvedor #2
+- [ ] **#022 - Estilização do Footer**
+  - **Descrição:** Estilizar footer usando Flexbox e Grid para organizar links em colunas, implementar hierarquia visual e garantir consistência com o design HBO MAX. Criar hover effects e estados visuais apropriados.
+  - **Critérios de aceite:**
+    - Footer estilizado conforme referência
+    - Links organizados em colunas
+    - Hierarquia visual clara
+    - Hover effects implementados
+    - Consistência com design system
+  - **Dificuldade:** ⭐⭐⭐
+  - **Estimativa:** 10 horas
+  - **Tecnologias:** CSS3, Flexbox, Grid
+  - **Sugestão de recursos/técnicas:** CSS Grid para layout, Flexbox para alinhamento
+  - **Foco de treinamento:** Combinação Grid + Flexbox
+  - **Dependências:** #021
+  - **Labels:** frontend, design
+
+#### Desenvolvedor #3
+- [ ] **#023 - Seção FAQ com Acordeão**
+  - **Descrição:** Implementar seção de FAQ com funcionalidade de acordeão usando apenas CSS. Usar técnicas como checkbox hack ou details/summary para criar expand/collapse functionality mantendo acessibilidade.
+  - **Critérios de aceite:**
+    - FAQ accordion funcionando apenas com CSS
+    - Animações suaves de abertura/fechamento
+    - Acessibilidade de teclado mantida
+    - Visual consistente com referência
+    - Performance otimizada
+  - **Dificuldade:** ⭐⭐⭐⭐
+  - **Estimativa:** 12 horas
+  - **Tecnologias:** CSS3, HTML5
+  - **Sugestão de recursos/técnicas:** CSS accordion, details/summary, transitions
+  - **Foco de treinamento:** CSS interativo avançado
+  - **Dependências:** #021
+  - **Labels:** frontend, advanced
+
+#### Desenvolvedor #4
+- [ ] **#024 - Otimização Final e Performance**
+  - **Descrição:** Otimizar CSS final, remover código desnecessário, minificar arquivos, otimizar imagens e implementar melhorias de performance. Verificar carregamento de recursos e ajustar para melhor experiência do usuário.
+  - **Critérios de aceite:**
+    - CSS otimizado e minificado
+    - Imagens otimizadas para web
+    - Tempo de carregamento < 3s
+    - Sem código CSS não utilizado
+    - Performance testada e documentada
+  - **Dificuldade:** ⭐⭐⭐
+  - **Estimativa:** 10 horas
+  - **Tecnologias:** CSS3, Performance Tools
+  - **Sugestão de recursos/técnicas:** CSS optimization, image compression, performance testing
+  - **Foco de treinamento:** Otimização e performance
+  - **Dependências:** #023
+  - **Labels:** performance, optimization
 
 #### Desenvolvedor #5
-- [ ] **#025 - Deploy e Entrega**
-  - **Descrição:** Preparar o projeto para deploy, criar versão de produção, realizar deploy (GitHub Pages ou similar), criar demo video/screenshots e preparar apresentação final.
-  - **Critérios de aceite:** Projeto deployado, demo funcionando, screenshots/video criados, link de acesso disponível
-  - **Dificuldade:** ⭐⭐
-  - **Estimativa:** 6 horas
-  - **Tecnologias:** Git, GitHub Pages
-  - **Sugestão de recursos/técnicas:** GitHub Pages, Static site deployment, Demo creation
-  - **Foco de treinamento:** Deploy e apresentação
-  - **Dependências:** Projeto completo
-  - **Labels:** frontend, documentação
+- [ ] **#025 - Testes Finais e Deploy**
+  - **Descrição:** Realizar testes finais abrangentes em todos os navegadores e dispositivos, criar documentação de entrega, implementar deploy no GitHub Pages e criar apresentação final com comparativo visual original vs clone.
+  - **Critérios de aceite:**
+    - Testes completos em todos os navegadores principais
+    - Deploy funcional no GitHub Pages
+    - Documentação de entrega completa
+    - Vídeo demo criado
+    - Comparativo visual documentado
+    - README atualizado com instruções finais
+  - **Dificuldade:** ⭐⭐⭐
+  - **Estimativa:** 12 horas
+  - **Tecnologias:** GitHub Pages, Testing Tools
+  - **Sugestão de recursos/técnicas:** Cross-browser testing, deployment, documentation
+  - **Foco de treinamento:** Deploy e documentação
+  - **Dependências:** #024
+  - **Labels:** testing, deployment, documentation
 
 ## 3. Tutorial Git/GitHub para Desenvolvedores Iniciantes
 
@@ -415,7 +537,7 @@ git config --global user.email "seu.email@exemplo.com"
 #### No GitHub (GUI)
 1. Criar conta no GitHub.com
 2. Fazer login na plataforma
-3. Criar um novo repositório para o projeto
+3. Criar um novo repositório para o projeto: "hbo-max-clone"
 
 ### 3.3 Comandos Essenciais do Git no VSCode
 
@@ -495,14 +617,14 @@ git checkout main
 git pull origin main
 
 # 2. Crie uma nova branch para sua task
-git checkout -b feature/nome-da-funcionalidade
+git checkout -b feature/task-001-setup-projeto
 
 # 3. Trabalhe normalmente, fazendo commits pequenos e frequentes
 git add .
-git commit -m "Adicionar header responsivo"
+git commit -m "Adicionar estrutura HTML base"
 
 # 4. Quando terminar, envie sua branch
-git push origin feature/nome-da-funcionalidade
+git push origin feature/task-001-setup-projeto
 
 # 5. Abra um Pull Request no GitHub para revisão
 # 6. Após aprovação, faça merge e delete a branch
@@ -539,14 +661,14 @@ git diff  # no terminal
 
 #### Mensagens de Commit:
 - Use presente do indicativo: "Adiciona" ao invés de "Adicionei"
-- Seja específico: "Corrige responsividade do menu mobile"
+- Seja específico: "Implementa header responsivo com navegação"
 - Evite mensagens vagas: "Update", "Fix", "Changes"
 
 #### Estrutura de Branches:
 - `main`: Código principal e estável
-- `feature/nome-funcionalidade`: Novas funcionalidades
-- `fix/nome-problema`: Correções de bugs
-- `docs/nome-documentacao`: Atualizações de documentação
+- `feature/task-XXX-nome`: Novas funcionalidades
+- `fix/task-XXX-nome`: Correções de bugs
+- `docs/task-XXX-nome`: Atualizações de documentação
 
 #### Commits Frequentes:
 - Faça commits pequenos e frequentes
@@ -584,11 +706,9 @@ git diff  # no terminal
 
 **GitHub Projects** - Por integrar nativamente com o repositório e ser gratuito, ideal para iniciantes.
 
-**Alternativa:** Notion - Para times que preferem interface mais visual e documetação integrada.
-
 ### Estratégia de Versionamento e Colaboração
 
-- **Branches obrigatórias** para cada funcionalidade
+- **Branches obrigatórias** para cada task (`feature/task-XXX-nome`)
 - **Pull Requests** para todas as mudanças na main
 - **Code Review** obrigatório entre pares (mínimo 1 aprovação)
 - **Deploy** apenas da branch `main`
@@ -599,20 +719,20 @@ git diff  # no terminal
 - **Testes manuais por checklist** após cada task
 - **Revisão de layout** comparando lado a lado com referência
 - **Teste funcional** de cada componente em diferentes dispositivos
+- **Cross-browser testing**: Chrome, Firefox, Safari, Edge
 - **Teste entre pares**: um colega revisa o trabalho do outro
-- **Cross-browser testing** nas últimas sprints
 
 ### Principais Riscos e Pontos de Atenção
 
 - **Limitações de prazo**: Manter escopo enxuto, evitar funcionalidades extras
-- **Gargalos técnicos**: Documentar dúvidas e buscar ajuda quando necessário
+- **Gargalos técnicos**: Grid e Flexbox podem ser desafiadores - documentar dúvidas
 - **Conflitos de merge**: Comunicar sempre quando trabalhar no mesmo arquivo
-- **Integração**: Testes constantes de integração entre componentes
+- **Integração**: Testes constantes de integração entre seções
 - **Qualidade**: Manter foco na fidelidade visual sem comprometer cronograma
 
 ### Checkpoints Intermediários
 
-- **Daily stand-ups**: 15min diários (async via chat se necessário)
+- **Daily stand-ups**: 15min diários para alinhamento
 - **Review semanal**: 1h para apresentação dos resultados da sprint
 - **Dúvidas técnicas**: Canal dedicado para suporte entre pares
 - **Demo incremental**: Apresentação do progresso a cada sprint
@@ -648,42 +768,42 @@ git diff  # no terminal
 
 | Sprint | Período | Foco Principal | Entregáveis |
 |--------|---------|----------------|-------------|
-| 1 | Semana 1 | Estrutura base e header | HTML base, header responsivo, setup Git |
-| 2 | Semana 2 | Hero section e grid | Hero completo, grid de conteúdo, cards básicos |
-| 3 | Semana 3 | Planos e carrossel | Seção de planos, carrossel CSS, categorias |
-| 4 | Semana 4 | FAQ e footer | FAQ accordion, footer, seção estreias |
-| 5 | Semana 5 | Polimento final | Acessibilidade, testes, deploy, documentação |
+| 1 | Dias 1-2 | Setup e Header | Estrutura base + Header responsivo |
+| 2 | Dias 3-4 | Hero Section | Grid principal + Overlay |
+| 3 | Dias 5-6 | Seção de Planos | Cards comparativos responsivos |
+| 4 | Dias 7-8 | Conteúdos | Carrosseis + Grids de conteúdo |
+| 5 | Dias 9-10 | Footer + Entrega | Footer + FAQ + Deploy final |
 
-**Data de entrega:** 17/06/2025
-**Total de horas por pessoa:** 50 horas (10h/semana x 5 semanas)
+**Data de entrega:** 10 dias
+**Total de horas por pessoa:** 50 horas (10h/semana x 1 semana)
 **Total de horas da equipe:** 250 horas
 
 ## 8. Observações UX/UI Detalhadas
 
-### Design System HBO Max
+### Design System HBO MAX
 
 **Cores principais:**
-- Roxo HBO: #7B2CBF
-- Azul escuro: #1A1A2E
 - Preto: #000000
+- Roxo HBO: #9D2EFF
 - Branco: #FFFFFF
-- Cinza: #8E8E93
+- Cinza escuro: #1C1C1C
+- Cinza claro: #8E8E93
 
 **Tipografia:**
-- Font principal: "HBO Sans" ou "Arial", sans-serif
-- Títulos: Bold, tamanhos variados (24px-48px)
-- Corpo: Regular, 16px-18px
-- Botões: Semi-bold, 14px-16px
+- Font principal: Helvetica Neue, Arial, sans-serif
+- Títulos: Bold, 2.5rem - 1.5rem
+- Corpo: Regular, 1rem - 0.875rem
+- Botões: Medium, 1rem
 
 **Espaçamentos:**
 - Container max-width: 1200px
-- Padding lateral: 20px (mobile), 40px (desktop)
-- Grid gap: 16px (mobile), 24px (desktop)
-- Section spacing: 60px (mobile), 100px (desktop)
+- Padding lateral: 20px (Mobile), 40px (Desktop)
+- Grid gap: 16px (Mobile), 24px (Desktop)
+- Section spacing: 60px (Mobile), 100px (Desktop)
 
 **Breakpoints:**
-- Mobile: 320px - 768px
-- Tablet: 768px - 1024px
+- Mobile: 320px - 767px
+- Tablet: 768px - 1023px
 - Desktop: 1024px+
 
 ### Acessibilidade Requirements
@@ -706,7 +826,7 @@ git diff  # no terminal
 - O que vou fazer hoje?
 - Tenho algum bloqueio?
 
-**Sprint Review (1h - Toda Sexta)**
+**Sprint Review (1h - A cada 2 dias)**
 - Demo do que foi desenvolvido
 - Feedback do time
 - Retrospectiva rápida
@@ -729,10 +849,10 @@ git diff  # no terminal
 ### Template de Pull Request
 ```
 ## Descrição
-Breve descrição do que foi implementado
+Implementação do [componente/funcionalidade]
 
-## Tasks relacionadas
-- Resolve #001
+## Task relacionada
+- Resolve #XXX
 
 ## Screenshots
 [Adicionar screenshots antes/depois]
@@ -742,6 +862,7 @@ Breve descrição do que foi implementado
 - [ ] Responsivo em mobile e desktop
 - [ ] Sem erros no console
 - [ ] Código comentado quando necessário
+- [ ] Fidelidade visual mantida
 ```
 
 ### Template de Issue
@@ -757,80 +878,45 @@ Descrição clara do problema ou funcionalidade
 Screenshots, links, referências
 ```
 
-## 11. Sprint 0 - Preparação e Onboarding (Opcional)
-
-### Objetivos da Sprint 0:
-- [ ] Todos os desenvolvedores têm Git instalado e configurado
-- [ ] Todos têm contas no GitHub e acesso ao repositório
-- [ ] Todos conseguem fazer clone, commit, push e pull
-- [ ] Todos sabem usar branches e Pull Requests
-- [ ] Estrutura inicial do projeto criada
-- [ ] Documentação básica (README) no lugar
-
-### Tasks típicas da Sprint 0:
-- Setup do ambiente de desenvolvimento
-- Tutorial prático de Git/GitHub
-- Criação da estrutura de pastas do projeto
-- Configuração de ferramentas (linters, formatadores)
-- Primeira contribuição de cada desenvolvedor (ex: adicionar nome no README)
-
-## 12. Informações do Projeto
+## 11. Informações do Projeto
 
 ### Dados Gerais
-- **Página de referência:** HBO Max Landing Page (conforme imagem fornecida)
+- **Página de referência:** HBO MAX Landing Page
 - **Nível técnico da equipe:** Iniciante
 - **Tamanho da equipe:** 5 desenvolvedores
 - **Disponibilidade:** 10 horas/semana por pessoa
 - **Stack tecnológica:** HTML + CSS
-- **Prazo desejado:** 17/06/2025
-- **Observações UX/UI:** Site responsivo para mobile e desktop, dark mode opcional, acessibilidade mínima AA, seguir o layout o mais fiel possível
+- **Prazo desejado:** 10 dias
+- **Foco de treinamento:** Grid Layout e Flexbox no CSS
+- **Observações UX/UI:** Site responsivo, dark mode opcional, acessibilidade AA
 
 ### Entregáveis Principais
 1. **Análise Inicial:** ✅ Completa
-2. **Planejamento de Sprints:** ✅ Completo com 25 tasks distribuídas
+2. **Planejamento de Sprints:** ✅ 5 sprints com 25 tasks distribuídas
 3. **Tutorial Git/GitHub:** ✅ Completo e didático
 4. **Recomendações Finais:** ✅ Estratégias e ferramentas definidas
 
-## 13. Restrições e Diretrizes
+## 12. Restrições e Diretrizes
 
-- **Não** utilizar tecnologias, bibliotecas ou dependências externas fora da stack definida
-- **Não** adicionar etapas desnecessárias ou tarefas que fujam do escopo da referência
-- **Sempre** considerar o real nível técnico da equipe ao propor tasks e estimativas
-- **Priorizar** entregas funcionais e incrementais a cada sprint
-- **Manter** tasks com escopos bem definidos, objetivos claros e mensuráveis
-- **Padronizar** o código usando convenções definidas
-- **Documentar** cada decisão técnica e eventuais dúvidas/enfrentamentos durante o processo
-- **Fomentar** a comunicação, revisão entre pares e dúvidas constantes
-- **Usar Git/GitHub** obrigatoriamente para todo o versionamento e colaboração
-
-## 14. Padronização de Código e Dependências
-
-### Padrão mínimo de código:
-- Seguir convenções de nomeação de arquivos, funções e variáveis
-- Usar identação consistente (2 espaços)
-- Comentários curtos sempre que houver lógica não trivial
-- Estrutura de CSS organizada por seções
-
-### Bibliotecas permitidas:
-- Apenas HTML5 e CSS3 puros
-- Fontes do Google Fonts (se necessário)
-- Qualquer exceção deve ser previamente aprovada
-
-### Padrão Git:
-- Branches nomeadas seguindo: `feature/`, `fix/`, `docs/`
-- Commits em português, tempo presente
-- Pull Requests obrigatórios para merge na main
+- **Não** utilizar JavaScript ou bibliotecas externas
+- **Não** adicionar funcionalidades não presentes na referência
+- **Sempre** considerar nível iniciante ao propor tasks
+- **Priorizar** Grid Layout e Flexbox para treinamento
+- **Manter** fidelidade visual alta
+- **Documentar** todas as decisões técnicas
+- **Usar Git/GitHub** obrigatoriamente
 
 ---
 
 **Próximos Passos:**
 1. Revisar este planejamento com toda a equipe
-2. Configurar o repositório GitHub
+2. Configurar o repositório GitHub "hbo-max-clone"
 3. Distribuir as tasks da Sprint 1
 4. Estabelecer rituais de comunicação
 5. Iniciar o desenvolvimento!
 
-**Data de criação:** 05/06/2025
-**Última atualização:** 05/06/2025
+**Contato do PO:** Product Owner HBO MAX Clone Project
+**Data de criação:** 2025-06-06
+**Última atualização:** 2025-06-06
 
-Estou disponível para esclarecimentos e ajustes no planejamento. 🚀
+Estou disponível para esclarecimentos e ajustes no planejamento. Vamos criar um clone incrível da HBO MAX! 🚀
