@@ -830,8 +830,7 @@ Screenshots, links, referências
 4. Estabelecer rituais de comunicação
 5. Iniciar o desenvolvimento!
 
-**Contato do PO:** juliomoreirx
 **Data de criação:** 05/06/2025
 **Última atualização:** 05/06/2025
 
-Estou disponível para esclarecimentos e ajustes no planejamento. Vamos criar um clone incrível da HBO Max! 🚀
+Estou disponível para esclarecimentos e ajustes no planejamento. 🚀
